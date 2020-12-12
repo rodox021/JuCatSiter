@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg-color: #e36976;
+            --bg-colorSec:rgb(212, 208, 208);
+        }
+        *{
+            
+            margin: 0px;
+           
+        }
+        body{
+            
+            font-size: 1.8em;
+            
+        }
+        .Header{
+            display: flex;
+            font-size: 3.8em;
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            justify-content: center;
+            padding: 0px 15px;
+            align-items: center;
+            background-color:var(--bg-color);
+            overflow: hidden;
+             white-space: nowrap;
+            
+        }
+        .aside{
+          
+            display: flex;
+            justify-content: center;
+            background-color:var(--bg-color);
+          
+        }
+        .aside img{
+            padding: 0px 15px;
+            width:100%;
+            max-width: 500px;
+            
+            
+            
+        }
+        .Main{
+            font-family: 'Roboto Condensed', sans-serif;
+            display: flex;
+            flex-direction: column;
+            
+            box-shadow: 0px 0px 15px #0004;
+            background-color: var(--bg-color);
+            color: black;
+            font-weight: 800;
+            align-items: center;
+            padding: 15px;
+            
+
+        }
+        /* .Footer{
+            background-color:var(--bg-color);
+        } */
+        .menu-area{
+            display: flex;
+            justify-content: center;
+            background-color:var(--bg-color);
+            overflow: hidden;
+            
+        }
+        .menu-area a{
+            padding: 0px 0px px 15px;
+            margin: 5px;
+            color: white;
+            font-size:30px;
+            
+        }
+        .menu-area a:hover{
+            color: black;
+        }
+        
+        .card {
+            flex: 1;
+            margin: 20px;
+            border:1px solid #000;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+
+            display: flex;
+            flex-direction: column;
+            min-width: 300px;
+        }
+        .card .content {
+            flex: 1;
+            padding: 15px 15px;
+            color: #000;
+        }
+        .center{
+            text-align: center;
+        }
+        .pad{
+            padding: 15px;
+        }
+       
+        label{
+           
+            margin-right:5px ;
+        }
+        .Radio{
+           padding: 15px;
+           
+           display: flex;
+           justify-content: left;
+           text-align: center;
+           
+        }
+        hr{
+            border: solid 1px black;
+        }
+        .hr-red{
+            border: solid 2px red;
+        }
+        .resultado{
+            padding: 5px;
+            margin: 0px;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 10px;
+            
+        }
+        .resultado label{
+            color: red;
+          
+
+        }
+        .resultado .verde{
+            color: green;
+        }
+        /* input[type=radio] {
+            border: 0px;
+            width: 100%;
+            height: 2em;
+        } */
+        .d-flex{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        #menu2{
+            grid-area: menu2;
+            display: none;
+        }
+        nav{
+            grid-area: menu;
+        }
+        header{
+            grid-area: header;
+        }
+        aside{
+            grid-area: logo;
+        }
+        main{
+            grid-area: conteudo;
+        }
+        footer{
+            grid-area: footer;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-color:  #e0a5ab;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 100px 70px 300px 1fr;
+            grid-template-areas:
+            'header'
+            'menu'
+            'logo'
+            'conteudo'
+            'footer';
+            height: 100vh;
+        }
+        @media(max-width: 700px){
+        .menu-area{
+        
+            display: flex;
+            flex-direction:row;
+            text-align: center;
+            padding: 0px;
+            
+        }
+        .menu-area a{
+            font-size: 15px;
+            ;
+        }
+        .Header{
+            font-size: 1.8em;
+        }
+        #menu2{
+            display: flex;
+        }
+        #menu1{
+            display: none;
+            
+        }
+        .grid{
+            
+            grid-template-columns: 100px 1fr;
+            grid-template-rows: 100px 100px 1fr 100px;
+            grid-template-areas:
+            'logo header'
+            'menu2 menu2'
+            'conteudo conteudo'
+            'footer footer';
+            height: 100vh;
+        }
+        .aside{
+            text-align: center;
+        }
+        .aside img{
+            padding: 0px 15px;
+            width:150%;
+            
+        }
+
+    }
+        
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+    <script type="text/babel">
+
+
+         function Header(){
+             return(
+                <header className="Header">
+                    <span>
+                        <i className="fa fa-heart"></i> Ju CatSitter <i className="fa fa-heart"></i>
+                    </span>
+                    
+                </header>
+                
+            )
+         }   
+
+         function Logo(){
+             return(
+                <aside className="aside">
+                    <div>
+                        <img src="https://raw.githubusercontent.com/rodox021/JuCatSiter/master/images/logo2.png" alt=""/>    
+                    </div>
+                </aside>
+                
+            )
+         }
+         
+         function Menu(){
+             return(
+                <nav id="menu1"className="menu-area ">
+                       <a href="https://www.facebook.com/jucatsitter" target="_blank"><i className="fa fa-facebook-square fa-2x"></i> /JuCatSitter</a> 
+                       <a href="tel:21987478049"><i className="fa fa-phone-square fa-2x"> </i> 21 96896-7870</a>
+                       <a href="https://wa.me/5521968967870" target = "_blank"><i className="fa fa-whatsapp fa-2x"></i> 21 96896-7870 </a> 
+                       <a href="https://www.instagram.com/jucatsitter/" target="_blank"><i className="fa fa-instagram fa-2x"> </i> @JuCatSitter</a> 
+                </nav>
+             )
+         }   
+         
+         function Menu2(){
+             return(
+                <nav id ="menu2"className="menu-area ">
+                       <a href="https://www.facebook.com/jucatsitter" target="_blank"><i className="fa fa-facebook-square fa-4x" ></i></a> 
+                       <a href="tel:5521968967870"><i className="fa fa-phone-square fa-4x"> </i></a>
+                       <a href="https://wa.me/5521968967870" target="_blank"><i className="fa fa-whatsapp fa-4x" > </i></a > 
+                       <a href="https://www.instagram.com/jucatsitter/" target="_blank"><i className="fa fa-instagram fa-4x"></i></a> 
+                </nav>
+             )
+         }   
+         
+         const stateInicial ={
+            dados:{
+                diaria: 60,
+                passagemMetro: 5,
+                passagemOnibus: 4.05,
+                select: '0',
+                qtdeDiarias: '0',
+                valortotal:'R$ 0',
+                valorDesconto: '0',
+                totalPassagem:'R$ 0',
+                orcamento: 'R$ 0',
+                desconto: 0
+
+            },
+            variaveis:{
+
+            },
+            list:{
+
+            }
+         }
+
+         class  Main extends React.Component{
+            // state = {...stateInicial}
+            constructor(){
+                super()
+                this.state  = {...stateInicial.dados}
+                
+            }
+
+            updateField(event){
+            this.setState({
+                [event.target.name] : event.target.value
+            })
+                
+               
+            }
+            clearField(event){
+                
+                this.setState(stateInicial.dados)
+                
+            }
+            valorDesconto(){
+                const dados = {...this.state}
+                console.log(dados)
+
+                const qtdeDiarias = parseFloat (this.state.qtdeDiarias)
+                const valorDiaria = parseFloat(this.state.diaria)
+                const optPass = parseInt(this.state.select)
+                let vPass
+                let totalPass
+                let valorTotal
+                let valorDoDesconto
+
+                //testando se diaias é maior que zero
+                if (qtdeDiarias >6 && qtdeDiarias <10){
+                    dados.valorDesconto = '5'
+                }else if (qtdeDiarias >=10){
+                    dados["valorDesconto"] = '10'   
+                }else if (qtdeDiarias === 0){
+                    alert("Selecione a quantidade de diárias")
+                    return
+                }else{
+                    dados["valorDesconto"] = '0'
+                }
+                // pegando valor todal das passagens
+                if(optPass === 1){
+                        vPass = parseFloat(dados.passagemMetro) 
+                        totalPass = ((vPass * qtdeDiarias)*2)
+                        dados.totalPassagem = totalPass.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})
+                       
+                }else  if(optPass === 2){
+                        vPass = parseFloat(dados.passagemOnibus) 
+                        totalPass = ((vPass * qtdeDiarias)*2)
+                        dados.totalPassagem = totalPass.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})
+                        
+                }else{
+                    alert("Selecione a Passagem")
+                    return
+                }
+                
+                valorTotal = qtdeDiarias * valorDiaria
+                dados.valortotal = valorTotal.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})
+
+                
+                dados.desconto = parseInt(dados.valorDesconto)/100 * valorTotal
+                dados.orcamento = valorTotal + totalPass - dados.desconto
+                
+                this.setState({
+
+                    valorDesconto: dados.valorDesconto,
+                    totalPassagem: dados.totalPassagem,
+                    valortotal: dados.valortotal,
+                    desconto: dados.desconto,
+                    orcamento: dados.orcamento
+                
+                
+                })
+                
+                
+                    //.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})
+                
+               
+
+            }
+           
+           render(){
+             return(
+                <main className="Main">
+                    <div className="form card">
+                        <div><h1 className="center pad">Orçamento de Serviço Prestado</h1></div>
+                            <hr/>
+                            <div> 
+                                <p className="resultado">
+                                    Valor da Diária: <label>{this.state.diaria.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})}</label>
+                                </p>
+                                <p className="resultado">
+                                    Valor Passagem Ônibus: <label className="">{this.state.passagemOnibus.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})}</label>
+                                </p>
+                                <p className="resultado">
+                                    Valor Passagem Mêtro: <label>{this.state.passagemMetro.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})}</label>
+                                </p>
+                                
+
+                            </div>
+                            <div className="row content">
+                                <div className="col-12 col-md-12">
+                                    <div className="form-group">
+                                        <label >Selecione a Pssagem</label>
+                                        
+                                        <select className="form-control" name="select" id="optPassagem"
+                                        onChange={e=>this.updateField(e)}>
+                                            <option value="0" name="select"> Select</option>
+                                            <option name="select"value="1"> Mêtro</option>
+                                            <option name="select"value="2"> Ônibus</option>
+                                        </select>
+                                    </div>
+                                    
+
+                                    
+                                </div>
+                                    <div className="col-12 col-md-12">
+                                        <div className="form-group">
+                                            <label >Digite a quantidade de diárias</label>
+                                            <input type="number" className="form-control"
+                                            name="qtdeDiarias"
+                                            min="0"
+                                            placeholder="0"
+                                            value={this.state.qtdeDiarias}
+                                            onChange={e=>this.updateField(e)}
+                                            />
+                                        </div>
+                                        <div className="col-12 d-flex pad">
+                                            <button className="btn btn-primary justify-content-space-between"
+                                            onClick={e=>this.valorDesconto()}>
+                                                Gerar Orçamento
+                                            </button> 
+                                            <button className="fa fa-trash btn btn-danger "
+                                            onClick={e=>this.clearField(e)}
+                                            >
+                                               
+                                            </button>   
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className="resultado">
+                                        Valor Total da(s) Diaria(s): <label> {this.state.valortotal}</label>
+                                    </div>
+                                    <div className="resultado">
+                                        Desconto De: <label className="verde">
+                                             - {this.state.desconto.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})}
+                                              ({this.state.valorDesconto}%)</label>
+                                    </div>
+                                    <div className=" resultado">
+                                        Valor Total da Passagem(Ida/Volta): <label>{this.state.totalPassagem}</label>
+                                    </div>
+                                    <hr className="hr-red"/>
+                                    <div className="resultado">
+                                        Total do Orçamento: <label> {this.state.orcamento.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})}</label>
+                                    </div>
+                            
+                        </div>
+                        
+
+
+                    </div>      
+                </main>
+                
+            )}
+         }
+         
+         function Footer(){
+             return(
+
+                 <footer className="Footer">
+                    <span>
+                        Desenvolvido com <i className="fa fa-heart text-danger"></i>  por
+                        <span className="text-danger"> Rodolfo Braga</span> <span className="text-danger"> <strong><i className="fa fa-copyright"></i> JuCatsitter</strong></span> 
+                    </span>
+                </footer>
+             )
+         }   
+
+         class App extends React.Component{
+             render(){
+
+                 return(
+                     
+                    <div className="div grid">
+                        <Header/>
+                        <Logo/>
+                        <Menu/>
+                        <Menu2/>
+                        <Main/>
+                        <Footer/>
+                    </div>  
+                  )
+             }
+         }
+
+        const root = document.getElementById('root')
+        ReactDOM.render(<App/>,root)
+    </script>
+    
+</body>
+</html>
